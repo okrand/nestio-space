@@ -1,5 +1,5 @@
 {
-  "homepage": "http://okrand.github.io/nestio-space",
+  "homepage": "https://okrand.github.io/nestio-space",
   "name": "nestio-space",
   "version": "0.1.0",
   "private": true,
@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "yarn run build",
+    "predeploy": "react-scripts build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
