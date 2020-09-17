@@ -1,6 +1,6 @@
 ### Nestio Satellite Tracking
 
-This React.JS project requires getting information from an API and displaying it in a simple but effective manner in addition to displaying the history using D3.js. The requirements are below. You can see this app running on http://okrand.github.io/nestio-space/
+This React.JS project requires getting information from an API and displaying it in a simple but effective manner in addition to displaying the history using D3.js. The requirements are below.
 
 ### Running the app
 Run `yarn` to download dependencies before starting
