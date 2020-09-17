@@ -40,7 +40,7 @@ const createChart = (data: AltitudeResponse[]) => {
 
     // Add Y axis
     const y = maxAlt && minAlt && d3.scaleLinear()
-        .domain([100, 200])
+        .domain([110, 210])
         .range([ height, 0 ])
     y && svg.append("g")
         .call(d3.axisLeft(y))

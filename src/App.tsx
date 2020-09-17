@@ -73,7 +73,6 @@ const getListItemsFromWarnings = (warnings: WarningInfo[]) => warnings.map((warn
 
 const getAltitude = (setRollingAlt: React.Dispatch<React.SetStateAction<AltitudeResponse[]>>) => {
   getApiCall('http://nestio.space/api/satellite/data', {}).then((data: AltitudeResponse) => {
-    console.log("New Altitude", data)
     setRollingAlt(rollingAlt => rollingAlt && [...rollingAlt, data].slice(-60))
   })
 }

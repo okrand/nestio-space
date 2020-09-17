@@ -19,10 +19,10 @@ const Status = (props: StatusProps) => {
         if (rollingAltitude.length > 9) {
             const minuteData = (rollingAltitude.slice(-10))
             const newAvg = getAverageAltitude(minuteData)
-            avgAlt >= WARNING_THRESHOLD && newAvg < WARNING_THRESHOLD && setWarnings(warnings => [...warnings, {avgAlt: newAvg, dateTime: moment()}])
+            avgAlt >= WARNING_THRESHOLD && newAvg < WARNING_THRESHOLD && setWarnings(warnings => [{avgAlt: newAvg, dateTime: moment()}, ...warnings])
             setAvgAlt(newAvg)
         }
-    }, [rollingAltitude])
+    }, [avgAlt, rollingAltitude, setWarnings])
     
     return <Label data-testid='warning-label' color={avgAlt < WARNING_THRESHOLD ? 'red': 'green'} size='massive'>{avgAlt < WARNING_THRESHOLD ? WARNING_MESSAGE : SAFE_MESSAGE}</Label>
 }
