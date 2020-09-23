@@ -16,13 +16,16 @@ const Status = (props: StatusProps) => {
     const { rollingAltitude, setWarnings } = props
     const [avgAlt, setAvgAlt] = useState(WARNING_THRESHOLD)
     useEffect(() => {
-        if (rollingAltitude.length > 9) {
-            const minuteData = (rollingAltitude.slice(-10))
+        if (rollingAltitude.length > 5) {
+            const minuteData = (rollingAltitude.slice(-6))
             const newAvg = getAverageAltitude(minuteData)
+            console.log("MINUTE DATA", minuteData)
+            console.log("OLD AVG", avgAlt)
+            console.log("NEW AVG", newAvg)
             avgAlt >= WARNING_THRESHOLD && newAvg < WARNING_THRESHOLD && setWarnings(warnings => [{avgAlt: newAvg, dateTime: moment()}, ...warnings])
             setAvgAlt(newAvg)
         }
-    }, [avgAlt, rollingAltitude, setWarnings])
+    }, [rollingAltitude])
     
     return <Label data-testid='warning-label' color={avgAlt < WARNING_THRESHOLD ? 'red': 'green'} size='massive'>{avgAlt < WARNING_THRESHOLD ? WARNING_MESSAGE : SAFE_MESSAGE}</Label>
 }
