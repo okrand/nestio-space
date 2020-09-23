@@ -19,9 +19,6 @@ const Status = (props: StatusProps) => {
         if (rollingAltitude.length > 5) {
             const minuteData = (rollingAltitude.slice(-6))
             const newAvg = getAverageAltitude(minuteData)
-            console.log("MINUTE DATA", minuteData)
-            console.log("OLD AVG", avgAlt)
-            console.log("NEW AVG", newAvg)
             avgAlt >= WARNING_THRESHOLD && newAvg < WARNING_THRESHOLD && setWarnings(warnings => [{avgAlt: newAvg, dateTime: moment()}, ...warnings])
             setAvgAlt(newAvg)
         }
